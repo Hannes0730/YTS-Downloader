@@ -2,7 +2,7 @@
 YTS Desktop Downloader is a windows application that lets you download your favorite movies without opening a browser.
 
 ## **Main Application**
-![alt text](https://github.com/Hannes0730/YTS-Downloader/tree/master/image/app.png "YTS Downloader")
+![alt text](image/app.png "YTS Downloader")
 
 ## **Genre and Sorting Selection**
 ![alt text](https://github.com/Hannes0730/YTS-Downloader/tree/master/image/genre_and_sorting.png "Genre and Sorting Selection")
