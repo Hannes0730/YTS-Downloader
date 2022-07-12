@@ -1,0 +1,94 @@
+﻿<Window x:Name="YTS_MainWindow" x:Class="YTS_Downloader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YTS_Downloader"
+        mc:Ignorable="d"
+        Title="" Height="{Binding SystemParameters.PrimaryScreenHeight}" Width="{Binding SystemParameters.PrimaryScreenWidth}" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" Loaded="YTS_MainWindow_Loaded" Background="#FF1D1D1D" Icon="/logo-YTS.png" SizeToContent="Height" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="75"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>-->
+
+        <DockPanel Grid.Row="0" HorizontalAlignment="Center">
+            <Image Height="100" Width="150" HorizontalAlignment="Left"  Source="/logo-YTS.png" Stretch="Uniform" Margin="50,25,0,0" ></Image>
+            <TextBox x:Name="movie_query" HorizontalAlignment="Center" Width="500" Height="50" Margin="50,25,0,0" FontSize="36" 
+                    BorderThickness="0,0,0,1" Background="Transparent" SpellCheck.IsEnabled="True" Language="en-US" Foreground="White" 
+                     VerticalAlignment="Center" UndoLimit="250" KeyDown="SearchKeyDown"/>
+            <Button x:Name="SearchBtn" Height="75" Width="250" Background="#FF6AC045" HorizontalAlignment="Right" Margin="0,0,50,0" 
+                    Content="Search" FontSize="36" Foreground="Black" Click="SearchBtn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="50"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </DockPanel>
+        
+        
+        <StackPanel x:Name="genrePanel" Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <!--<StackPanel.Resources>
+                <Style TargetType="{x:Type StackPanel}">
+                    <Setter Property="Margin" Value=",0,0,0"></Setter>
+                </Style>
+            </StackPanel.Resources>-->
+            <StackPanel Margin="0,0,20,0">
+                <TextBlock Text="Select Genre: " Foreground="White" FontSize="16"></TextBlock>
+                <ComboBox Name="GenreList" Width="100" SelectionChanged="GenreList_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Sort By: " Foreground="White" FontSize="16"></TextBlock>
+                <ComboBox Name="SortList" Width="100" HorizontalContentAlignment="Stretch" SelectionChanged="SortList_SelectionChanged"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!--<Line Grid.Row="1" X1="50" Y1="50"  X2="1450" Y2="50"  
+                Stroke="#75c74e" StrokeThickness="2"/>-->
+
+        <Separator Grid.Row="1" Background="#FF6AC045" Margin="50,0,50,0" VerticalAlignment="Bottom"></Separator>
+
+        <!--<ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
+            <StackPanel x:Name="movieList" Margin="50,20,0,20" Grid.Column="0">
+            </StackPanel>
+        </ScrollViewer>-->
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2">
+            <UniformGrid HorizontalAlignment="Center" x:Name="movieList" Columns="4">
+                <UniformGrid.Resources>
+                    <Style TargetType="{x:Type StackPanel}">
+                        <Setter Property="Margin" Value="30"></Setter>
+                    </Style>
+                </UniformGrid.Resources>
+            </UniformGrid>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button x:Name="PreviousBtn" Height="25" Width="100" Background="Gray" 
+                    Content="Previous" FontSize="16" Foreground="Black" Click="PreviousBtn_Click" Margin="0,0,20,0" IsEnabled="False">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="NextBtn" Grid.Column="1" Height="25" Width="100" Background="#FF6AC045"
+                    Content="Next" FontSize="16"  Foreground="Black"  Margin="20,0,0,0" Click="NextBtn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

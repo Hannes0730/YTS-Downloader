@@ -1,0 +1,23 @@
+﻿<Window x:Name="MovieInfoWindow" x:Class="YTS_Downloader.MovieInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YTS_Downloader"
+        mc:Ignorable="d"
+        Title="MovieInfo" Height="600" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#FF1D1D1D" Icon="/logo-YTS.png">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="700"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Image x:Name="MovieInfoImage" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30"></Image>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1">
+            <StackPanel x:Name="MovieInfoDetails"  VerticalAlignment="Top" Margin="50">
+            </StackPanel>
+        </ScrollViewer>
+        
+    </Grid>
+</Window>
